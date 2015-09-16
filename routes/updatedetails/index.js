@@ -25,11 +25,12 @@ exports.updatedetails = function(req, res){
     //console.log(data);
 
     var connection = mysql.createConnection({
-        host     : 'localhost',
+        host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
         user     : 'root',
-        password : '',
+        password : 'Pop123465.',
         database : 'Project2'
     });
+
 
     connection.connect(function(err){
         if(!err) {
