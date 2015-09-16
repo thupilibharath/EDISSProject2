@@ -1,0 +1,148 @@
+//
+   Created by Bharath on 9/10/15.
+
+extends layout
+block content
+   nav(clas='navbar navbar-default navbar-fixed-top')
+      .container-fluid
+         .navbar-header.navbar-brand
+            a(href='/home') EDISS Project2
+         div
+            ul(class='nav navbar-nav navbar-right' )
+               //li
+                  a(href='/login') Login
+               li(class='dropdown')
+                  a(href= "#", class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true" ,aria-expanded="false") Actions
+                  ul(class='dropdown-menu')
+                     li
+                        a(href='/updateInfo') Update Information
+                        a(href = '/logout') Logout
+
+      br
+      .row
+         .col-md-8
+            h2 Please update your information
+
+      div(class = 'form-group')
+         .row
+            .col-xs-6.col-md-4
+               label(for='error')
+            .col-xs-6.col-md-4
+               div(id='error')
+      div(id='error')
+      form(role = 'form', id='updateform', action='/updateInfo', method='post' )
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='email',) Email Address
+               .col-xs-6.col-md-4
+                  input(type='email', class='form-control', name='email', id='email', value='#{email}')
+               .col-xs-6.col-md-4
+                  div(id='emailerror')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='fname',) First Name
+               .col-xs-6.col-md-4
+                  input(type='text', class='form-control', name='fname', id = 'fname',value='#{fname}')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='lname',) Last Name
+               .col-xs-6.col-md-4
+                  input(type='text', class='form-control', name='lname', id='lname', value='#{lname}')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='address',) Address
+               .col-xs-6.col-md-4
+                  textarea(rows='3' class = 'form-control' name='address1', id='address') #{address}
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='City',) City
+               .col-xs-6.col-md-4
+                  input(type='text', class='form-control', name='city', id= 'city', value='#{city}')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='City',) State
+               .col-xs-6.col-md-4
+                  select(name='statel' class='form-form-control', id='statel', value='#{state}')
+                     option(value='AL') AL
+                     option(value='AK') AK
+                     option(value='AZ') AZ
+                     option(value='AR') AR
+                     option(value='CA') CA
+                     option(value='CO') CO
+                     option(value='CT') CT
+                     option(value='DE') DE
+                     option(value='DC') DC
+                     option(value='FL') FL
+                     option(value='GA') GA
+                     option(value='HI') HI
+                     option(value='ID') ID
+                     option(value='IL') IL
+                     option(value='IN') IN
+                     option(value='IA') IA
+                     option(value='KS') KS
+                     option(value='KY') KY
+                     option(value='LA') LA
+                     option(value='ME') ME
+                     option(value='MD') MD
+                     option(value='MA') MA
+                     option(value='MI') MI
+                     option(value='MN') MN
+                     option(value='MS') MS
+                     option(value='MO') MO
+                     option(value='MT') MT
+                     option(value='NE') NE
+                     option(value='NV') NV
+                     option(value='NH') NH
+                     option(value='NJ') NJ
+                     option(value='NM') NM
+                     option(value='NY') NY
+                     option(value='NC') NC
+                     option(value='ND') ND
+                     option(value='OH') OH
+                     option(value='OK') OK
+                     option(value='OR') OR
+                     option(value='PA') PA
+                     option(value='RI') RI
+                     option(value='SC') SC
+                     option(value='SD') SD
+                     option(value='TN') TN
+                     option(value='TX') TX
+                     option(value='UT') UT
+                     option(value='VT') VT
+                     option(value='VA') VA
+                     option(value='WA') WA
+                     option(value='WV') WV
+                     option(value='WI') WI
+
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='zip',) Zip
+               .col-xs-6.col-md-4
+                  input(type='text', class='form-control', name='zip', id='zip', value='#{zip}')
+               .col-xs-6.col-md-4
+                  div(id='ziperror')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='uname',) Username
+               .col-xs-6.col-md-4
+                  input(type='text', class='form-control', name='uname', id='uname', value='#{uname}')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='password',) Password
+               .col-xs-6.col-md-4
+                  input(type='password', class='form-control', name='pwd', id='pwd', value='#{pwd}')
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='s',)
+               .col-xs-6.col-md-4
+                  button(type='submit', class = 'btn btn-primary', id='updatedetails' ) Submit

@@ -1,0 +1,51 @@
+//
+   Created by Bharath on 9/11/15.
+
+extends layout
+block content
+   nav(clas='navbar navbar-default navbar-fixed-top')
+      .container-fluid
+         .navbar-header.navbar-brand
+            a(href='/home') EDISS Project2
+         div
+            ul(class='nav navbar-nav navbar-right' )
+               li
+                  a(href='/login') Login
+               //li(class='dropdown')
+                  a(href= "#", class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true" ,aria-expanded="false") Actions
+                  ul(class='dropdown-menu')
+                     li
+                        a(href='/updatedetails') Update Information
+                        a(href = '/logout') Logout
+   .container-fluid
+      .row
+         .col-md-8
+            h2 Welcome to store
+      br
+      br
+      br
+      br
+      form(role = 'form', id='registerform', action='/getProducts', method='get' )
+         .row
+            .col-md-3
+               h4 Search for Items
+            .col-md-6
+               input(type='text', class='form-control', name='searchtexta', id='searchtext1', placeholder='Product ID (optional)')
+            .col-md-3
+               // button(type='submit', class = 'btn btn-big btn-primary', id='searchbutton' ) Go
+         br
+         .row
+            .col-md-3
+               h4
+            .col-md-6
+               input(type='text', class='form-control', name='searchtextb', id='searchtext2', placeholder='Product Category (optional)')
+            .col-md-3
+               //button(type='submit', class = 'btn btn-big btn-primary', id='searchbutton' ) Go
+         br
+         .row
+            .col-md-3
+               h4
+            .col-md-6
+               input(type='text', class='form-control', name='searchtextc', id='searchtext3', placeholder='Product Name (Optional)')
+            .col-md-3
+               button(type='submit', class = 'btn btn-big btn-primary', id='searchbutton' ) Go

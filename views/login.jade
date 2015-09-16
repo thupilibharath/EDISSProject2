@@ -1,0 +1,39 @@
+//
+   Created by Bharath on 9/3/15.
+extends layout
+
+block content
+
+   nav(role='navigation', clas='navbar navbar-default navbar-fixed-top')
+      .container-fluid
+         .navbar-header.navbar-brand
+            a(href='/home') EDISS Project2
+
+      .row
+         .col-md-8
+            h2 Please login
+       br
+
+      form(role = 'form', id='registerform', action='/login', method='post' )
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='uname',) Username
+               .col-xs-6.col-md-4
+                  input(type='text', class='form-control', name='username', id='uname')
+
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='password',) Password
+               .col-xs-6.col-md-4
+                  input(type='password', class='form-control', name='password', id='pwd')
+
+
+         div(class = 'form-group')
+            .row
+               .col-xs-6.col-md-4
+                  label(for='s',)
+               .col-xs-6.col-md-4
+                  button(type='submit', class = 'btn btn-primary', id= 'submitlogindetails' ) Login
+
