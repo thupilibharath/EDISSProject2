@@ -47,7 +47,12 @@ app.get('/getProducts', search.search);
 app.get('/home', home.home);
 app.post('/modifyProduct', updateitems.updateitems);
 app.get('/modifyProduct',function(req,res){
-   res.render('modifyproducts');
+    var sess = req.session;
+    if(sess.username&&sess.role=='admin') {
+        res.render('modifyproducts');
+    }
+    else
+    res.render('error', {error:'You are not authorized to perform this operation'});
 });
 
 app.get('/viewUsers', users.list);
