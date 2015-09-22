@@ -18,7 +18,6 @@ var path = require('path');
 
 var app = express();
 var count = 0;
-var sess;
 
 // Set app's environments
 app.set('port', process.env.PORT || 7001);
@@ -54,7 +53,14 @@ app.get('/modifyProduct',function(req,res){
     else
     res.render('error', {error:'You are not authorized to perform this operation'});
 });
-
+app.get('/userFilter', function(req,res){
+    var sess = req.session;
+    if(sess.username&&sess.role=='admin') {
+        res.render('userfilter');
+    }
+    else
+        res.render('error', {error:'You are not authorized to perform this operation'});
+});
 app.get('/viewUsers', users.list);
 app.get('/logout', logout.logoutuser);
 app.post('/logout', logout.logoutuser);

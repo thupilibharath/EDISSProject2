@@ -1,5 +1,5 @@
 //
-   Created by Bharath on 9/11/15.
+   Created by Bharath on 9/22/15.
 
 extends layout
 block content
@@ -20,17 +20,17 @@ block content
    .container-fluid
       .row
          .col-md-8
-            h2 Modify Items by providing details below
+            h2 Filter your results my providing following parameters
       br
       br
       br
       br
-      form(role = 'form', id='registerform', action='/modifyProduct', method='post' )
+      form(role = 'form', id='registerform', action='/viewUsers', method='GET' )
          .row
             .col-md-3
                h4 Details
             .col-md-6
-               input(type='text', class='form-control', name='texta', id='searchtext1', placeholder='Product ID')
+               input(type='text', class='form-control', name='texta', id='searchtexta', placeholder='First Name')
             .col-md-3
                // button(type='submit', class = 'btn btn-big btn-primary', id='searchbutton' ) Go
          br
@@ -38,14 +38,14 @@ block content
             .col-md-3
                h4
             .col-md-6
-               input(type='text', class='form-control', name='textb', id='searchtext2', placeholder='Product Description')
+               input(type='text', class='form-control', name='textb', id='searchtextb', placeholder='Last Name')
             .col-md-3
                //button(type='submit', class = 'btn btn-big btn-primary', id='searchbutton' ) Go
          br
          .row
             .col-md-3
                h4
-            .col-md-6
+            //.col-md-6
                input(type='text', class='form-control', name='textc', id='searchtext3', placeholder='Product Name')
             .col-md-3
                button(type='submit', class = 'btn btn-big btn-primary', id='searchbutton' ) Go

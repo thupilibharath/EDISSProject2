@@ -27,7 +27,7 @@ exports.register = function(req,res){
     //Check if user already exists
 
     var connection = mysql.createConnection({
-        host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
+        host     : '127.0.0.1',
         user     : 'root',
         password : 'Pop123465.',
         database : 'Project2'
@@ -60,7 +60,7 @@ exports.register = function(req,res){
             //Connect to Database
 
             var connection1 = mysql.createConnection({
-                host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
+                host     : '127.0.0.1',
                 user     : 'root',
                 password : 'Pop123465.',
                 database : 'Project2'
@@ -83,7 +83,7 @@ exports.register = function(req,res){
                     console.log('Error while performing Insert');
             });
 
-            res.render('responsesuccess');
+            res.render('error', {error:'Registration was  successful  !!'});
 
             connection1.end();
 

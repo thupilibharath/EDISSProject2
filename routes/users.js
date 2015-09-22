@@ -4,10 +4,27 @@
 exports.list = function(req, res){
   sess = req.session;
 
+  var fname,lname;
 
+  console.log(req.query.texta);
+  console.log(req.query.textb);
+
+
+  if(typeof req.query.texta=='undefined')
+    fname = '\'\%\'';
+  else
+   fname = '\'\%'+req.query.texta+'\%\'';
+
+  if(typeof req.query.textb=='undefined')
+    lname = '\'\%\'';
+  else
+    lname = '\'\%'+req.query.textb+'\%\'';
+
+  console.log('fname is '+fname);
+  console.log('lname is '+lname);
   var mysql      = require('mysql');
   var connection = mysql.createConnection({
-    host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
+    host     : '127.0.0.1',
     user     : 'root',
     password : 'Pop123465.',
     database : 'Project2'
@@ -24,9 +41,11 @@ exports.list = function(req, res){
 
 
   if(sess.username&&sess.role=='admin') {
-    connection.query('SELECT uname, fname, lname from user_details', function (err, rows) {
+    connection.query('SELECT uname, fname, lname from user_details where fname like '+fname+' and lname like '+lname, function (err, rows) {
+      if(err)
+        res.render('feedback', {feedback: 'Provide proper search criteria'});
       if (rows.length == 0)
-        res.render('feedback', {feedback: 'No Registered users available'});
+        res.render('feedback', {feedback: 'No Registered users available with given criteria'});
       else if (!err && rows.length > 0) {
         console.log('displaying results');
         var result = {};

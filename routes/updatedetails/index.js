@@ -25,7 +25,7 @@ exports.updatedetails = function(req, res){
     //console.log(data);
 
     var connection = mysql.createConnection({
-        host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
+        host     : '127.0.0.1',
         user     : 'root',
         password : 'Pop123465.',
         database : 'Project2'
@@ -83,7 +83,7 @@ exports.displaydetails = function(req,res){
     //console.log(data);
 
     var connection = mysql.createConnection({
-        host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
+        host     : '127.0.0.1',
         user     : 'root',
         password : 'Pop123465.',
         database : 'Project2'

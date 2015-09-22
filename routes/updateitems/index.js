@@ -8,9 +8,10 @@ exports.updateitems=function(req,res){
     var groups = '\''+req.body.textb+'\'';
     var title = '\''+req.body.textc+'\'';
     var mysql = require('mysql');
+    console.log('id is '+id);
 
     var connection = mysql.createConnection({
-        host     : 'edissproject2.crbxasmdgbrq.us-east-1.rds.amazonaws.com',
+        host     : '127.0.0.1',
         user     : 'root',
         password : 'Pop123465.',
         database : 'Project2'
@@ -25,8 +26,11 @@ exports.updateitems=function(req,res){
     });
 
 
-    if(sess.username&&sess.role=='admin') {
-        connection.query('update product_details set groups=' + groups + ',title=' + title + 'where id=' + id, function (err, rows) {
+    if(id=='\'\''&&sess.role=='admin'||groups=='\'\''&&sess.role=='admin'||title=='\'\''&&sess.role=='admin'){
+        res.render('feedback', {feedback:'Please provide proper details'});
+    }
+    else if(sess.username&&sess.role=='admin') {
+        connection.query('update product_details set description=' + groups + ',title=' + title + 'where id=' + id, function (err, rows) {
             if (!err) {
                 console.log('updated items');
                 res.render('feedback', {feedback: 'Details updated successfully'});
