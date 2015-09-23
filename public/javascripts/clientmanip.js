@@ -108,7 +108,7 @@ $('#updatedetails').click( function(event) {
     var zip = $('#zip').val();
     var uname = $('#uname').val();
     var pwd = $('#pwd').val();
-    var emailvalidator = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var emailvalidator = /\S+@\S+\.\S+/;
     var zipvalidator = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
 
 
