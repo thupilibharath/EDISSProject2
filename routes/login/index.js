@@ -40,7 +40,7 @@ exports.loginsuccess = function(req, res){
 
     connection.query('SELECT * from user_details where uname='+temp, function(err, rows) {
         if(rows.length==0)
-            res.render('relogin');
+            res.render('error',{error:'Invalid Credentials. Please login again'});
         else if (!err&&rows.length>0) {
             console.log('The solution is: ', rows);
             uname1 = rows[0].uname;
